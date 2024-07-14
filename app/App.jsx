@@ -7,9 +7,10 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import CategoriesScreen from './screen/CategoriesScreen.jsx';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import BottomNavigationBar from './components/BottomNavigationBar.jsx';
-import ToolsScreen from './screen/ToolsScreen.jsx';
-import StarScreen from './screen/StarScreen.jsx';
 import SettingsSceern from './screen/SettingsScreen.jsx';
+import ToolsStack from './stack/ToolsStack.jsx';
+import TestPage from './tools/TestPage.jsx';
+import StarStack from './stack/StarStack.jsx';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,6 +21,11 @@ export default function App() {
   }, []);
   let [theme, setTheme] = useState(getTheme());
   let [navTheme, setNavTheme] = useState();
+
+  Appearance.addChangeListener(() => {
+    setTheme(getTheme());
+    setNavTheme(getNavTheme());
+  });
 
   return (
     <PaperProvider theme={theme}>
@@ -52,7 +58,7 @@ export default function App() {
           />
           <Tab.Screen
             name="工具"
-            component={ToolsScreen}
+            component={ToolsStack}
             options={{
               tabBarLabel: '工具',
               // eslint-disable-next-line react/no-unstable-nested-components
@@ -63,7 +69,7 @@ export default function App() {
           />
           <Tab.Screen
             name="收藏"
-            component={StarScreen}
+            component={StarStack}
             options={{
               tabBarLabel: '收藏',
               // eslint-disable-next-line react/no-unstable-nested-components
@@ -82,6 +88,17 @@ export default function App() {
               // eslint-disable-next-line react/no-unstable-nested-components
               tabBarIcon: ({color, size}) => {
                 return <Icon name="cog" size={size} color={color} />;
+              },
+            }}
+          />
+          <Tab.Screen
+            name="debug"
+            component={TestPage}
+            options={{
+              tabBarLabel: '调试',
+              // eslint-disable-next-line react/no-unstable-nested-components
+              tabBarIcon: ({color, size}) => {
+                return <Icon name="bug" size={size} color={color} />;
               },
             }}
           />
