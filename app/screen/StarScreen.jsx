@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
-import {Button, Text} from 'react-native-paper';
+import {FlatList, RefreshControl, StyleSheet} from 'react-native';
 import {Tools} from '../config/ToolsData';
 import {GetData} from '../storage/cache';
 import ToolCard from '../components/ToolCard';
@@ -13,6 +12,13 @@ export default function StarScreen({navigation}) {
   }, [setStarList]);
 
   const [isExtended, setIsExtended] = React.useState(true);
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+
+    getStarList(setStarList).then(() => setRefreshing(false));
+  }, []);
 
   const onScroll = ({nativeEvent}) => {
     const currentScrollPosition =
@@ -25,7 +31,6 @@ export default function StarScreen({navigation}) {
   const getStarList = async _setStarList => {
     const promises = Tools.map(tool => {
       return GetData('star-' + tool.id).then(({data, ok}) => {
-        console.log('star-' + tool.id, data, ok);
         if (ok && data === '1') {
           return tool;
         } else {
@@ -41,11 +46,15 @@ export default function StarScreen({navigation}) {
       return acc;
     }, []);
     setStarList(list);
+    return true;
   };
 
   return (
     <SafeAreaView>
       <FlatList
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
         style={styles.flatList}
         data={starList}
         renderItem={({item}) => (
@@ -71,7 +80,7 @@ export default function StarScreen({navigation}) {
 
 const styles = StyleSheet.create({
   fab: {
-    bottom: 16,
+    bottom: 32,
     right: 16,
     position: 'absolute',
   },

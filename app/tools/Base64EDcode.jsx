@@ -123,8 +123,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   Menu: {
-    position: 'absolute',
-    marginTop: 60,
-    marginLeft: 2,
+    marginTop: 70,
   },
 });
