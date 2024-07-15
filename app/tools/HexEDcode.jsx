@@ -39,7 +39,7 @@ function Comp() {
     setResult('');
   };
   return (
-    <View>
+    <ScrollView>
       <Surface style={styles.Surface}>
         <TextInput
           className="m-2"
@@ -68,7 +68,7 @@ function Comp() {
           <Text className="m-2">{result}</Text>
         </ScrollView>
       </Surface>
-    </View>
+    </ScrollView>
   );
 }
 

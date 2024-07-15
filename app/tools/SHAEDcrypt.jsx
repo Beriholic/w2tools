@@ -45,8 +45,8 @@ function Comp() {
   };
 
   return (
-    <View>
-      <Surface style={styles.Surface}>
+    <ScrollView>
+      <Surface style={styles.Surface_input}>
         <TextInput
           className="m-2"
           multiline={true}
@@ -89,19 +89,25 @@ function Comp() {
           重置
         </Button>
       </View>
-      <Surface style={styles.Surface}>
+      <Surface style={styles.Surface_result}>
         <ScrollView>
           <Text className="m-2">{result}</Text>
         </ScrollView>
       </Surface>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  Surface: {
+  Surface_input: {
     minHeight: 250,
     maxHeight: 250,
+    margin: 10,
+    borderRadius: 10,
+  },
+  Surface_result: {
+    minHeight: 200,
+    maxHeight: 200,
     margin: 10,
     borderRadius: 10,
   },

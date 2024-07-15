@@ -30,7 +30,7 @@ function Comp() {
   };
 
   return (
-    <View>
+    <ScrollView>
       <SegmentedButtons
         className="pl-2 pr-2 pt-4 pb-2"
         value={isUrlSafe}
@@ -74,7 +74,7 @@ function Comp() {
           <Text className="m-2">{result}</Text>
         </ScrollView>
       </Surface>
-    </View>
+    </ScrollView>
   );
 }
 

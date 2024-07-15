@@ -36,7 +36,7 @@ function Comp() {
   };
 
   return (
-    <View>
+    <ScrollView>
       <Surface style={styles.Surface_key}>
         <TextInput placeholder="密钥" value={key} onChangeText={setKey} />
       </Surface>
@@ -68,7 +68,7 @@ function Comp() {
           <Text className="m-2">{result}</Text>
         </ScrollView>
       </Surface>
-    </View>
+    </ScrollView>
   );
 }
 
