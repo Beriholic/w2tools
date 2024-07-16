@@ -1,8 +1,6 @@
-import {Base64} from 'js-base64';
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet, TextInput, View} from 'react-native';
 import {Button, SegmentedButtons, Surface, Text} from 'react-native-paper';
-import Clipboard from '@react-native-clipboard/clipboard';
 import BaseCode from './base/BaseCode';
 export default function NumberSystem({route}) {
   return <BaseCode route={route} Component={Comp} />;
@@ -10,8 +8,6 @@ export default function NumberSystem({route}) {
 
 function Comp() {
   const [input, setInput] = useState('');
-  const [result, setResult] = useState('');
-  const [isUrlSafe, setIsUrlSafe] = useState(false);
   const [inputType, setInputType] = useState('10');
 
   const [decimal, setDecimal] = useState('');

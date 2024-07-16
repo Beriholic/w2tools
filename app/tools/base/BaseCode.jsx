@@ -1,70 +1,59 @@
-import React, {useEffect, useState} from 'react';
-import {Pressable, StyleSheet, View} from 'react-native';
-import {Menu, Text} from 'react-native-paper';
+import React, {useEffect, useMemo, useState} from 'react';
+import {ScrollView, StyleSheet, View} from 'react-native';
+import {AnimatedFAB, Headline} from 'react-native-paper';
 import {GetData, InsertData} from '../../storage/cache';
 
 export default function BaseCode({route, Component}) {
   useEffect(() => {
-    checkStar(id, setIsStar, setStarTitle);
-  }, [id, setIsStar, setStarTitle]);
+    checkStar(id, setIsStar);
+  }, [id, setIsStar]);
 
   const {id, title} = route.params;
-
-  const [menuVisible, setMenuVisible] = React.useState(false);
-
-  const openMenu = () => setMenuVisible(true);
-
-  const closeMenu = () => setMenuVisible(false);
-
   const [isStar, setIsStar] = useState(false);
-  const [starTitle, setStarTitle] = useState('收藏');
+  const fabIcon = useMemo(() => (isStar ? 'star' : 'star-outline'), [isStar]);
 
   const checkStar = (_id, _setIsStar, _setStarTitle) => {
     GetData('star-' + _id).then(({data, ok}) => {
       if (ok) {
         if (data === '1') {
           _setIsStar(true);
-          _setStarTitle('取消收藏');
         } else {
           _setIsStar(false);
-          _setStarTitle('收藏');
         }
       }
     });
   };
   const starToggle = () => {
     const newValue = isStar ? '0' : '1';
-    const newTitle = isStar ? '收藏' : '取消收藏';
     InsertData('star-' + id, newValue).then(() => {
       setIsStar(!isStar);
-      setStarTitle(newTitle);
     });
   };
 
   return (
-    <View>
-      <View className="pl-2 pr-2 mt-2">
-        <Menu
-          style={styles.Menu}
-          visible={menuVisible}
-          onDismiss={closeMenu}
-          anchor={
-            <Pressable onPress={openMenu}>
-              <Text variant="headlineSmall">{title}</Text>
-            </Pressable>
-          }>
-          <Menu.Item onPress={starToggle} title={starTitle} />
-        </Menu>
+    <ScrollView>
+      <View className="p-2 pb-0">
+        <Headline className="p-2 pb-0">{title}</Headline>
       </View>
       <View>
         <Component />
       </View>
-    </View>
+      <AnimatedFAB
+        style={styles.fab}
+        icon={fabIcon}
+        label={'Label'}
+        onPress={starToggle}
+        animateFrom={'right'}
+        iconMode={'static'}
+      />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  Menu: {
-    marginTop: 70,
+  fab: {
+    bottom: 10,
+    right: 10,
+    position: 'absolute',
   },
 });
