@@ -82,81 +82,15 @@ export const Tools = [
   },
   {
     id: 10,
-    title: 'JWT加密/解密',
-    cid: 2,
-    router: 'JWTEDcrypt',
-  },
-  {
-    id: 11,
-    title: 'JSON格式化',
-    cid: 3,
-    router: 'JsonFormat',
-  },
-  {
-    id: 12,
-    title: 'XML格式化',
-    cid: 3,
-    router: 'XmlFormat',
-  },
-  {
-    id: 13,
-    title: 'YAML格式化',
-    cid: 3,
-    router: 'YamlFormat',
-  },
-  {
-    id: 14,
-    title: 'HTML格式化',
-    cid: 3,
-    router: 'HtmlFormat',
-  },
-  {
-    id: 15,
-    title: 'CSS格式化',
-    cid: 3,
-    router: 'CssFormat',
-  },
-  {
-    id: 16,
-    title: 'JS格式化',
-    cid: 3,
-    router: 'JsFormat',
-  },
-  {
-    id: 17,
-    title: 'SQL格式化',
-    cid: 3,
-    router: 'SqlFormat',
-  },
-  {
-    id: 18,
-    title: '时间戳转换',
-    cid: 3,
-    router: 'Timestamp',
-  },
-  {
-    id: 19,
     title: 'RGB/HEX转换',
     cid: 3,
     router: 'RGBHEX',
   },
   {
-    id: 20,
+    id: 11,
     title: '进制转换',
     cid: 3,
     router: 'NumberSystem',
-  },
-  {
-    id: 21,
-    title: '单位转换',
-    cid: 3,
-    router: 'UnitConversion',
-  },
-  {
-    id: 22,
-    title: 'IP地址转换',
-    cid: 3,
-    router: 'IPAddress',
   },
 ];
 

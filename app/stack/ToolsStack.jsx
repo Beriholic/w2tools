@@ -10,7 +10,8 @@ import SHA1Encrypt from '../tools/SHAEDcrypt';
 import AESEDcrypt from '../tools/AESEDcrypt';
 import DESEDcrypt from '../tools/DESEDcrypt';
 import RC4EDcrypt from '../tools/RC4EDcrypt';
-import JWTEDcrypt from '../tools/JWTEDcrypt';
+import RGBHEX from '../tools/RGBHEX';
+import NumberSystem from '../tools/NumberSystem';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +32,8 @@ export default function ToolsStack() {
       <Stack.Screen name="AESEDcrypt" component={AESEDcrypt} />
       <Stack.Screen name="DESEDcrypt" component={DESEDcrypt} />
       <Stack.Screen name="RC4EDcrypt" component={RC4EDcrypt} />
-      <Stack.Screen name="JWTEDcrypt" component={JWTEDcrypt} />
+      <Stack.Screen name="RGBHEX" component={RGBHEX} />
+      <Stack.Screen name="NumberSystem" component={NumberSystem} />
     </Stack.Navigator>
   );
 }

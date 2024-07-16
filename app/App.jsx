@@ -6,6 +6,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import CategoriesScreen from './screen/CategoriesScreen.jsx';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import BottomNavigationBar from './components/BottomNavigationBar.jsx';
 import SettingsSceern from './screen/SettingsScreen.jsx';
 import ToolsStack from './stack/ToolsStack.jsx';
