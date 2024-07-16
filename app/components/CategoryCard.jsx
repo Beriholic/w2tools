@@ -1,6 +1,6 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import {Surface, Text, useTheme} from 'react-native-paper';
+import {Text, useTheme} from 'react-native-paper';
 
 export default function CategoryCard({name}) {
   const theme = useTheme();

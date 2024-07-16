@@ -10,7 +10,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import BottomNavigationBar from './components/BottomNavigationBar.jsx';
 import SettingsSceern from './screen/SettingsScreen.jsx';
 import ToolsStack from './stack/ToolsStack.jsx';
-import TestPage from './tools/TestPage.jsx';
 import StarStack from './stack/StarStack.jsx';
 
 const Tab = createBottomTabNavigator();
@@ -89,17 +88,6 @@ export default function App() {
               // eslint-disable-next-line react/no-unstable-nested-components
               tabBarIcon: ({color, size}) => {
                 return <Icon name="cog" size={size} color={color} />;
-              },
-            }}
-          />
-          <Tab.Screen
-            name="debug"
-            component={TestPage}
-            options={{
-              tabBarLabel: '调试',
-              // eslint-disable-next-line react/no-unstable-nested-components
-              tabBarIcon: ({color, size}) => {
-                return <Icon name="bug" size={size} color={color} />;
               },
             }}
           />
