@@ -7,7 +7,6 @@ interface CacheResult {
 
 export async function InsertData(key: string, value: string): Promise<boolean> {
   try {
-    console.log('InsertData', key, value);
     await AsyncStorage.setItem(key, JSON.stringify(value));
     return true;
   } catch (e) {
@@ -38,6 +37,14 @@ export async function RemoveData(key: string): Promise<boolean> {
 export async function MergeData(key: string, value: string): Promise<boolean> {
   try {
     await AsyncStorage.mergeItem(key, JSON.stringify(value));
+    return true;
+  } catch (e) {
+    return true;
+  }
+}
+export async function CleanAllData(): Promise<boolean> {
+  try {
+    await AsyncStorage.clear();
     return true;
   } catch (e) {
     return true;
