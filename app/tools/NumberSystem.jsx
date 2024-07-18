@@ -85,11 +85,10 @@ function Comp() {
         </View>
         <Surface style={styles.Surface}>
           <TextInput
-            className="m-2"
+            className="m-2 p-2"
             multiline={true}
             value={input}
             onChangeText={text => toSwitch(text)}
-            placeholder="输入原数"
           />
         </Surface>
       </View>
@@ -132,6 +131,7 @@ function Comp() {
           <Text className="p-4">{hex}</Text>
         </Surface>
       </View>
+      <View className="m-8" />
     </ScrollView>
   );
 }
